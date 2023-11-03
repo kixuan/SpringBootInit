@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * 腾讯云对象存储客户端
  */
 @Configuration
-@ConfigurationProperties(prefix = "cos.client")
+@ConfigurationProperties(prefix = "cos.client") // 将以下字段值的前缀都设置为 cos.client
 @Data
 public class CosClientConfig {
 

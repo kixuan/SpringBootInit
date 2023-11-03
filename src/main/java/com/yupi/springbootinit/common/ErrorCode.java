@@ -1,8 +1,11 @@
 package com.yupi.springbootinit.common;
 
+import lombok.Getter;
+
 /**
  * 自定义错误码
  */
+@Getter
 public enum ErrorCode {
 
     SUCCESS(0, "ok"),
@@ -12,7 +15,8 @@ public enum ErrorCode {
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
     FORBIDDEN_ERROR(40300, "禁止访问"),
     SYSTEM_ERROR(50000, "系统内部异常"),
-    OPERATION_ERROR(50001, "操作失败");
+    OPERATION_ERROR(50001, "操作失败"),
+    UNHAPPY(950827, "你碰到了随机Bug！");
 
     /**
      * 状态码
@@ -27,14 +31,6 @@ public enum ErrorCode {
     ErrorCode(int code, String message) {
         this.code = code;
         this.message = message;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
 }

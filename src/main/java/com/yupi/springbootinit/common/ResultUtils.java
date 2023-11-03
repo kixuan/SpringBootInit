@@ -10,7 +10,6 @@ public class ResultUtils {
      *
      * @param data
      * @param <T>
-     * @return
      */
     public static <T> BaseResponse<T> success(T data) {
         return new BaseResponse<>(0, data, "ok");
@@ -19,10 +18,9 @@ public class ResultUtils {
     /**
      * 失败
      *
-     * @param errorCode
-     * @return
+     * @param errorCode 哎呀这个好像一般都不用的，因为懒得在新建一个ErrorCode再把数据放进去了，就直接用下面两个方法包装辽
      */
-    public static BaseResponse error(ErrorCode errorCode) {
+    public static <T> BaseResponse<T> error(ErrorCode errorCode) {
         return new BaseResponse<>(errorCode);
     }
 
@@ -31,9 +29,8 @@ public class ResultUtils {
      *
      * @param code
      * @param message
-     * @return
      */
-    public static BaseResponse error(int code, String message) {
+    public static <T> BaseResponse<T> error(int code, String message) {
         return new BaseResponse(code, null, message);
     }
 
@@ -41,9 +38,8 @@ public class ResultUtils {
      * 失败
      *
      * @param errorCode
-     * @return
      */
-    public static BaseResponse error(ErrorCode errorCode, String message) {
+    public static <T> BaseResponse<T> error(ErrorCode errorCode, String message) {
         return new BaseResponse(errorCode.getCode(), null, message);
     }
 }

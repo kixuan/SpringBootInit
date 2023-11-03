@@ -9,22 +9,21 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * MyBatis Plus 配置
- *
- * @author https://github.com/liyupi */
+ */
 @Configuration
 @MapperScan("com.yupi.springbootinit.mapper")
 public class MyBatisPlusConfig {
 
     /**
      * 拦截器配置
-     *
-     * @return
+     * 挺简单的一个配置，就是new了一个分页插件，设置数据库type是mysql
      */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        // 分页插件
+        // 设置分页插件
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
+
     }
 }

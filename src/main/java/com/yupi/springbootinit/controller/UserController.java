@@ -186,6 +186,10 @@ public class UserController {
      */
     @PostMapping("/update")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
+    // @AuthCheck(mustRole = UserRoleEnum.ADMIN.getValue())
+    // 这里就体现为什么都是UserRole但要写一个枚举类一个常量类
+    // 注解里面的参数必须使用常量
+    // 但是枚举类在其他使用也很方便
     public BaseResponse<Boolean> updateUser(@RequestBody UserUpdateRequest userUpdateRequest,
                                             HttpServletRequest request) {
         if (userUpdateRequest == null || userUpdateRequest.getId() == null) {
